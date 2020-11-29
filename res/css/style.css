@@ -1,0 +1,10 @@
+brushbutton {
+    scale: 0.1;
+    cursor: button;
+}
+
+brushbar {
+    align: middle left;
+    background: #ffffff;
+    fill-width: true;
+}

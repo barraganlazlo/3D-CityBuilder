@@ -1,0 +1,4 @@
+config.hxml
+-lib hlsdl
+-hl build/game.hl
+-D windowSize=1280x720
