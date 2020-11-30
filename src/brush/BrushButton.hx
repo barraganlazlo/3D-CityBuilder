@@ -16,8 +16,7 @@ class BrushButton extends h2d.Flow implements h2d.domkit.Object {
         enableInteractive = true;
         this.type=type;
         interactive.onClick = function (e:hxd.Event) {
-            trace(type);
-            Game.instance.world.setBrushType(type);
+            Game.world.setBrushType(type);
         }
     }
 }
