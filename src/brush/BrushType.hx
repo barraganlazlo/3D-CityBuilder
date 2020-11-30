@@ -2,5 +2,8 @@ package brush;
 enum BrushType {
     None;
     Road;
-    Building;
+    House;
+    Skyscraper;
+    Shop;
+    Cinema;
 }

@@ -3,7 +3,7 @@ import brush.BrushType;
 class Tile3D extends h3d.scene.Object{
     var mesh : h3d.scene.Mesh;
     public var brushType : BrushType;
-    public function new(mesh : h3d.scene.Mesh, brushType :BrushType,x=0,y=0,rotation=0.0, ?parent) {
+    public function new(mesh : h3d.scene.Mesh, brushType :BrushType,x=0.0,y=0.0,rotation=0.0, ?parent) {
         super(parent);
         this.brushType=brushType;
         this.x=x;        

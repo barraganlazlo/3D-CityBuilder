@@ -25,8 +25,19 @@ class Game extends hxd.App {
 	inline function loadModels() {
 		cache = new h3d.prim.ModelCache();
 		buildingPrefabs = [
-			new TilePrefab(hxd.Res.meshes.fbx.buildings._12,Building),
-			new TilePrefab(hxd.Res.meshes.fbx.buildings._13,Building)
+			new TilePrefab(hxd.Res.meshes.fbx.buildings._1,Skyscraper,0,2),
+			new TilePrefab(hxd.Res.meshes.fbx.buildings._2,Skyscraper,0,2),
+			new TilePrefab(hxd.Res.meshes.fbx.buildings._3,Skyscraper,0,2),
+			new TilePrefab(hxd.Res.meshes.fbx.buildings._4,Skyscraper,0,2),
+			new TilePrefab(hxd.Res.meshes.fbx.buildings._5,Skyscraper,0,2),
+			new TilePrefab(hxd.Res.meshes.fbx.buildings._6,Skyscraper,0,2),
+			new TilePrefab(hxd.Res.meshes.fbx.buildings._7,Skyscraper,0,2),
+			new TilePrefab(hxd.Res.meshes.fbx.buildings._8,Shop,0,2),
+			new TilePrefab(hxd.Res.meshes.fbx.buildings._9,Shop,0,2),
+			new TilePrefab(hxd.Res.meshes.fbx.buildings._10,Shop,0,2),
+			new TilePrefab(hxd.Res.meshes.fbx.buildings._11,Cinema,0,4),
+			new TilePrefab(hxd.Res.meshes.fbx.buildings._12,House),
+			new TilePrefab(hxd.Res.meshes.fbx.buildings._13,House)
 		];
 
 		//bit mask using uint
@@ -97,7 +108,10 @@ class Game extends hxd.App {
         var bar= new BrushBar(s2d); 
         var btns=[
             new BrushButton(hxd.Res.sprites.road.toTile(),Road,bar),
-            new BrushButton(hxd.Res.sprites.house.toTile(),Building,bar)
+            new BrushButton(hxd.Res.sprites.house.toTile(),House,bar),
+            new BrushButton(hxd.Res.sprites.cinema.toTile(),Cinema,bar),
+            new BrushButton(hxd.Res.sprites.shop.toTile(),Shop,bar),
+            new BrushButton(hxd.Res.sprites.skyscraper.toTile(),Skyscraper,bar)
         ];
         style.addObject(bar);
         style.allowInspect = true;
