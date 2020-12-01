@@ -15,7 +15,7 @@ class World {
 	// Input
 	public var currentX:Int;
 	public var currentY:Int;
-	public var pushing = -1;
+	var pushing = false;
 
 	public function new(worldsize:Int) {
 		size = worldsize;
@@ -73,11 +73,11 @@ class World {
 	function handleEvent(e:hxd.Event) {
 		switch (e.kind) {
 			case EPush:
-				pushing = e.button;
+				pushing = e.button==0;
 			case ERelease:
-				pushing = -1;
+				pushing = false;
 			case EReleaseOutside:
-				pushing = -1;
+				pushing = false;
 			case EMove:
 				currentX = Math.round(e.relX);
 				currentY = Math.round(e.relY);
@@ -119,6 +119,6 @@ class World {
 	}
 	// return true si le bouton 0 (click gauche est appuyé)
 	public function isUsingBrush(): Bool{
-		return pushing==0;
+		return pushing;
 	}
 }
