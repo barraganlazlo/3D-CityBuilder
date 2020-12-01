@@ -15,7 +15,7 @@ class World {
 	// Input
 	public var currentX:Int;
 	public var currentY:Int;
-	public var pushing = false;
+	public var pushing = -1;
 
 	public function new(worldsize:Int) {
 		size = worldsize;
@@ -36,6 +36,7 @@ class World {
 		// init Interractive
 		interactive = new h3d.scene.Interactive(ground.getCollider(), Game.instance.s3d);
 		interactive.enableRightButton = false;
+		interactive.propagateEvents=true;
 		interactive.cursor = Default;
 		interactive.onMove = handleEvent;
 		interactive.onPush = handleEvent;
@@ -50,7 +51,7 @@ class World {
 		currentBrush = null;
 		brushes = new Map<BrushType, Brush>();
 		for (value in Type.allEnums(BrushType)) {
-			if (value == BrushType.Road || value == BrushType.None)
+			if (value == BrushType.Road || value == BrushType.None || value == BrushType.Delete)
 				continue;
 			var array = [
 				for (t in 0...Game.buildingPrefabs.length)
@@ -60,10 +61,7 @@ class World {
 		}
 
 		brushes[BrushType.Road] = new BrushRoad(this);
-		// brushes[BrushType.House]= new BrushBuilding([12,13],this);
-		// brushes[BrushType.Cinema]= new BrushBuilding([11],this);
-		// brushes[BrushType.Shop]= new BrushBuilding([8,9,10],this);
-		// brushes[BrushType.Skyscraper]= new BrushBuilding([for(i in 0...8)i],this);
+		brushes[BrushType.Delete] = new BrushDelete(this);
 		brushes[BrushType.None] = null;
 	}
 
@@ -75,11 +73,11 @@ class World {
 	function handleEvent(e:hxd.Event) {
 		switch (e.kind) {
 			case EPush:
-				pushing = true;
+				pushing = e.button;
 			case ERelease:
-				pushing = false;
+				pushing = -1;
 			case EReleaseOutside:
-				pushing = false;
+				pushing = -1;
 			case EMove:
 				currentX = Math.round(e.relX);
 				currentY = Math.round(e.relY);
@@ -118,5 +116,9 @@ class World {
 	// return true if x and y in bounds and tile is not null
 	public function isOccupied(x:Int, y:Int):Bool {
 		return isInBounds(x,y)&& tileMap[x][y] != null;
+	}
+	// return true si le bouton 0 (click gauche est appuyé)
+	public function isUsingBrush(): Bool{
+		return pushing==0;
 	}
 }

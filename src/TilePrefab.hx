@@ -13,6 +13,6 @@ class TilePrefab {
     }
     public function instantiate(x = 0.0 ,y = 0.0,?parent) : Tile3D{
         var m=Game.cache.loadModel(model).toMesh();
-        return new Tile3D(m,brushType,x,y,rotation,parent);
+        return new Tile3D(m,brushType,tilesize,x,y,rotation,parent);
     }
 }

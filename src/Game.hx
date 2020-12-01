@@ -111,10 +111,10 @@ class Game extends hxd.App {
             new BrushButton(hxd.Res.sprites.house.toTile(),House,bar),
             new BrushButton(hxd.Res.sprites.cinema.toTile(),Cinema,bar),
             new BrushButton(hxd.Res.sprites.shop.toTile(),Shop,bar),
-            new BrushButton(hxd.Res.sprites.skyscraper.toTile(),Skyscraper,bar)
+            new BrushButton(hxd.Res.sprites.skyscraper.toTile(),Skyscraper,bar),
+            new BrushButton(hxd.Res.sprites.delete.toTile(),Delete,bar)
         ];
         style.addObject(bar);
-        style.allowInspect = true;
     }
 
 	inline function initLight() {

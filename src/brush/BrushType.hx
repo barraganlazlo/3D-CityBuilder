@@ -6,4 +6,5 @@ enum BrushType {
     Skyscraper;
     Shop;
     Cinema;
+    Delete;
 }

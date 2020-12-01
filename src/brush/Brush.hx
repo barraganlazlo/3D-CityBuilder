@@ -23,7 +23,7 @@ class Brush {
 	public function update(dt:Float, x:Int, y:Int) {
 		Assert.assert(currentTileInstance != null);
 		var size = currentTilePrefab.tilesize;
-		if (world.pushing) {
+		if (world.isUsingBrush()) {
 			var isEmpty = true;
 			for (i in x...x + size) {
 				for (j in y...y + size) {
